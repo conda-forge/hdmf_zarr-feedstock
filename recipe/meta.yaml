@@ -1,5 +1,5 @@
 {% set name = "hdmf_zarr" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 740c58f01db1d644cdbedf9597bf84812386ee88cf52656fd9215defe78a48d5
+  sha256: da12419cd5a0616ca73d742c5fdeb5c8f02e2b17dc8a0390494021c25b3de929
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
@@ -20,7 +20,8 @@ requirements:
     - pip
   run:
     - python >=3.7
-    - hdmf >=3.4.0
+    - hdmf ==3.5.4
+    - numpy <1.24
     - zarr >=2.11.0
     - numcodecs >=0.9.1
     - pynwb >=2.0.0

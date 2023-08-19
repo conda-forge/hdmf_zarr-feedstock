@@ -1,11 +1,11 @@
-About hdmf_zarr
-===============
+About hdmf_zarr-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/hdmf_zarr-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/hdmf-dev/hdmf-zarr
 
 Package license: BSD-3-Clause-LBNL
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/hdmf_zarr-feedstock/blob/main/LICENSE.txt)
 
 Summary: Zarr backend for HDMF
 
