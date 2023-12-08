@@ -1,5 +1,5 @@
 {% set name = "hdmf_zarr" %}
-{% set version = "0.3.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: da12419cd5a0616ca73d742c5fdeb5c8f02e2b17dc8a0390494021c25b3de929
+  sha256: c23a41fb408a9bc3f2da85b347d7bbe0386a922bb8a1df3a89fc6048c8228bf5
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
