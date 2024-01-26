@@ -1,5 +1,5 @@
 {% set name = "hdmf_zarr" %}
-{% set version = "0.3.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: da12419cd5a0616ca73d742c5fdeb5c8f02e2b17dc8a0390494021c25b3de929
+  sha256: c23a41fb408a9bc3f2da85b347d7bbe0386a922bb8a1df3a89fc6048c8228bf5
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
@@ -15,25 +15,32 @@ build:
   number: 0
 
 requirements:
+  build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
-    - python >=3.7
     - pip
+    - python
+    - hatchling
+    - hatch-vcs
   run:
-    - python >=3.7
-    - hdmf ==3.5.4
-    - numpy <1.24
+    - python >=3.8
+    - hdmf >=3.9.0
     - zarr >=2.11.0
+    - numpy >=1.24
     - numcodecs >=0.9.1
-    - pynwb >=2.0.0
-    - setuptools
+    - pynwb >=2.5.0
+    - threadpoolctl >=3.1.0
 
 test:
-  commands:
-    - pip check
+  source_files:
+    - tests
+  requires:
+    - pytest
   imports:
     - hdmf_zarr
-  requires:
-    - pip
+  commands:
+    - pytest -v
 
 about:
   home: https://github.com/hdmf-dev/hdmf-zarr
