@@ -15,25 +15,32 @@ build:
   number: 0
 
 requirements:
+  build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
-    - python >=3.7
     - pip
+    - python
+    - hatchling
+    - hatch-vcs
   run:
-    - python >=3.7
-    - hdmf ==3.5.4
-    - numpy <1.24
+    - python >=3.8
+    - hdmf >=3.9.0
     - zarr >=2.11.0
+    - numpy >=1.24
     - numcodecs >=0.9.1
-    - pynwb >=2.0.0
-    - setuptools
+    - pynwb >=2.5.0
+    - threadpoolctl >=3.1.0
 
 test:
-  commands:
-    - pip check
+  source_files:
+    - tests
+  requires:
+    - pytest
   imports:
     - hdmf_zarr
-  requires:
-    - pip
+  commands:
+    - pytest -v
 
 about:
   home: https://github.com/hdmf-dev/hdmf-zarr
