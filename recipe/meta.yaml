@@ -6,13 +6,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: bdc9db8e50eff30974306a5306bd4b2b593d8baaf331794d294da0cd9bd1ca8a
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -20,11 +20,11 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - pip
-    - python
+    - python {{ python_min }}
     - hatchling
     - hatch-vcs
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - hdmf >=3.9.0
     - zarr >=2.11.0
     - numpy >=1.24
@@ -37,6 +37,7 @@ test:
     - tests
   requires:
     - pytest
+    - python {{ python_min }}
   imports:
     - hdmf_zarr
   commands:
