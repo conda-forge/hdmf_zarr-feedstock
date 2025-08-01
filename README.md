@@ -36,7 +36,7 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-hdmf_zarr-green.svg)](https://anaconda.org/conda-forge/hdmf_zarr) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/hdmf_zarr.svg)](https://anaconda.org/conda-forge/hdmf_zarr) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/hdmf_zarr.svg)](https://anaconda.org/conda-forge/hdmf_zarr) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/hdmf_zarr.svg)](https://anaconda.org/conda-forge/hdmf_zarr) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-hdmf__zarr-green.svg)](https://anaconda.org/conda-forge/hdmf_zarr) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/hdmf_zarr.svg)](https://anaconda.org/conda-forge/hdmf_zarr) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/hdmf_zarr.svg)](https://anaconda.org/conda-forge/hdmf_zarr) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/hdmf_zarr.svg)](https://anaconda.org/conda-forge/hdmf_zarr) |
 
 Installing hdmf_zarr
 ====================
@@ -153,4 +153,5 @@ Feedstock Maintainers
 =====================
 
 * [@mavaylon1](https://github.com/mavaylon1/)
+* [@rly](https://github.com/rly/)
 
