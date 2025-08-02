@@ -1,5 +1,6 @@
 {% set name = "hdmf_zarr" %}
 {% set version = "0.11.2" %}
+{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +13,7 @@ source:
 build:
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -20,15 +21,15 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - pip
-    - python
+    - python {{ python_min }}
     - hatchling
     - hatch-vcs
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - hdmf >=3.14.5
-    - zarr >=2.18.0, <3.0
+    - zarr >=2.18.0,<3.0
     - numpy >=1.24.0
-    - numcodecs >=0.10.0, <0.16.0
+    - numcodecs >=0.10.0,<0.16.0
     - pynwb >=2.8.3
     - threadpoolctl >=3.1.0
 
@@ -37,6 +38,7 @@ test:
     - tests
   requires:
     - pytest
+    - python {{ python_min }}
   imports:
     - hdmf_zarr
   commands:
