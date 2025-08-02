@@ -1,5 +1,6 @@
 {% set name = "hdmf_zarr" %}
 {% set version = "0.11.2" %}
+{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
