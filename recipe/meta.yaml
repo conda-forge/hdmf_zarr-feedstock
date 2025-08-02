@@ -12,7 +12,7 @@ source:
 build:
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -20,11 +20,11 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - pip
-    - python
+    - python {{ python_min }}
     - hatchling
     - hatch-vcs
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - hdmf >=3.14.5
     - zarr >=2.18.0, <3.0
     - numpy >=1.24.0
@@ -37,6 +37,7 @@ test:
     - tests
   requires:
     - pytest
+    - python {{ python_min }}
   imports:
     - hdmf_zarr
   commands:
