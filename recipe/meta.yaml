@@ -1,6 +1,6 @@
 {% set name = "hdmf_zarr" %}
 {% set version = "0.13.0" %}
-{% set python_min = "3.9" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -26,10 +26,10 @@ requirements:
     - hatch-vcs
   run:
     - python >={{ python_min }}
-    - hdmf >=3.14.5
+    - hdmf >=4.1.0
     - zarr >=2.18.0,<3.0
     - numpy >=1.24.0
-    - numcodecs >=0.10.0,<0.16.0
+    - numcodecs >=0.12.0,<0.16.0
     - pynwb >=2.8.3
     - threadpoolctl >=3.1.0
 
