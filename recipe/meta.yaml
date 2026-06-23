@@ -1,6 +1,6 @@
 {% set name = "hdmf_zarr" %}
-{% set version = "0.12.0" %}
-{% set python_min = "3.9" %}
+{% set version = "0.13.0" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9fa413fcddfc12e825b99f06ebdbc35439c6fad9f00a44936961b9ffd684e0c0
+  sha256: f880755b024a2e06459c48664e1b6b30753cd2f67f1a6c399505483cd2b0911a
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
@@ -26,11 +26,11 @@ requirements:
     - hatch-vcs
   run:
     - python >={{ python_min }}
-    - hdmf >=3.14.5
+    - hdmf >=4.1.0
     - zarr >=2.18.0,<3.0
     - numpy >=1.24.0
-    - numcodecs >=0.10.0,<0.16.0
-    - pynwb >=2.8.3
+    - numcodecs >=0.12.0,<0.16.0
+    - pynwb >=3.1.0
     - threadpoolctl >=3.1.0
 
 test:
@@ -38,6 +38,7 @@ test:
     - tests
   requires:
     - pytest
+    - scipy >=1.7
     - python {{ python_min }}
   imports:
     - hdmf_zarr
